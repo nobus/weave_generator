@@ -1,6 +1,8 @@
 
 var weaveSize = 100;
-var colors = ['#4286f4', '#f47741', '#33b73a'];
+
+// !!!!!!!! put colors this place !!!!!!!!
+var colors = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#2d3a80', '#476eb3'];
 
 var weave = document.getElementById('weave');
 
