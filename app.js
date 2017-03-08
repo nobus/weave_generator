@@ -24,7 +24,7 @@ function getRandomIntInclusive(min, max) {
 }
 
 function getColor(clr) {
-  return clr[getRandomInt(0, colors.length)];
+  return clr[getRandomInt(0, clr.length)];
 }
 
 function getColorThreadling() {
