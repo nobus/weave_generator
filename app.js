@@ -7,34 +7,6 @@ var colorsTreadling = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#
 
 var weave = document.getElementById('weave');
 
-function getBoolean() {
-  return Math.random() >= 0.5;
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
-}
-
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function getColor(clr) {
-  return clr[getRandomInt(0, clr.length)];
-}
-
-function getColorThreadling() {
-  return getColor(colorsThreading);
-}
-
-function getColorTreadling() {
-  return getColor(colorsTreadling);
-}
-
 var treadlingColors = [];
 for (var i = 0; i < weaveSize; i++) treadlingColors.push(getColorTreadling());
 
