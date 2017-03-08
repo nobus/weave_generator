@@ -15,16 +15,17 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getColor(clr) {
-  return clr[getRandomInt(0, clr.length)];
-}
+function getColor(clr, step) {
+  if (step) {
+      var index = getRandomInt(0, clr.length);
+      var ret = clr[index];
 
-function getColorThreadling() {
-  return getColor(colorsThreading);
-}
+      clr = clr.filter((e, i) => {return (i != index) ? e : undefined});
 
-function getColorTreadling() {
-  return getColor(colorsTreadling);
+      return {'color': ret, 'colorSet': clr};
+  } else {
+    return {'color': clr[getRandomInt(0, clr.length)], 'colorSet': clr};
+  }
 }
 
 function paramsParser() {
