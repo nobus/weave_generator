@@ -2,7 +2,8 @@
 var weaveSize = 100;
 
 // !!!!!!!! put colors this place !!!!!!!!
-var colors = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#2d3a80', '#476eb3'];
+var colorsThreading = ['#f8fae5'];
+var colorsTreadling = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#2d3a80', '#476eb3'];
 
 var weave = document.getElementById('weave');
 
@@ -22,15 +23,23 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getColor() {
-  return colors[getRandomInt(0, colors.length)];
+function getColor(clr) {
+  return clr[getRandomInt(0, colors.length)];
+}
+
+function getColorThreadling() {
+  return getColor(colorsThreading);
+}
+
+function getColorTreadling() {
+  return getColor(colorsTreadling);
 }
 
 var treadlingColors = [];
-for (var i = 0; i < weaveSize; i++) treadlingColors.push(getColor());
+for (var i = 0; i < weaveSize; i++) treadlingColors.push(getColorTreadling());
 
 for (var i = 0; i < weaveSize; i++) {
-  var threadingColor = getColor();
+  var threadingColor = getColorThreadling();
 
   var col = document.createElement("DIV");
   col.className = "column";
