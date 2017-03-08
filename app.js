@@ -4,8 +4,12 @@ var params = paramsParser();
 var weaveSize = 100;
 
 // !!!!!!!! put colors this place !!!!!!!!
-var colorsThreading = ['#f8fae5'];
-var colorsTreadling = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#2d3a80', '#476eb3'];
+var colors = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#2d3a80', '#476eb3'];
+var colorsThreading = colors;
+var colorsTreadling = colors;
+
+if (params.colorsThreading) colorsThreading = setColorsFromParams(params.colorsThreading);
+if (params.colorsTreadling) colorsTreadling = setColorsFromParams(params.colorsTreadling);
 
 var weave = document.getElementById('weave');
 
