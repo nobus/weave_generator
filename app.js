@@ -1,4 +1,6 @@
 
+var params = paramsParser();
+
 var weaveSize = 100;
 
 // !!!!!!!! put colors this place !!!!!!!!
