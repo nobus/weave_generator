@@ -41,8 +41,13 @@ for (var i = 0; i < weaveSize; i++) {
 
     elem.className = getBoolean() ? 'threadingElem' : 'treadlingElem';
 
-    if (elem.className === 'threadingElem') elem.style.backgroundColor = threadingColor;
-    else elem.style.backgroundColor = treadlingColors[ii];
+    var elemColor;
+
+    if (elem.className === 'threadingElem') elemColor = threadingColor;
+    else elemColor = treadlingColors[ii];
+
+    elem.style.backgroundColor = elemColor;
+    elem.title = elemColor;
 
     col.appendChild(elem);
   }
