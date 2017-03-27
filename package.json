@@ -4,7 +4,9 @@
   "description": "Weave generator",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "mkdir build; cp app.js common.js index.html style.css build",
+    "deploy": "gh-pages -d build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/nobus/weave_generator/issues"
   },
-  "homepage": "https://github.com/nobus/weave_generator#readme"
+  "homepage": "https://github.com/nobus/weave_generator",
+  "devDependencies": {
+    "gh-pages": "^0.12.0"
+  }
 }
