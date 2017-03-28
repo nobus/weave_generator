@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "mkdir build; cp app.js common.js index.html style.css build",
+    "build": "rm -rf build; mkdir build; cp src/*.js src/index.html src/style.css build",
     "deploy": "gh-pages -d build"
   },
   "repository": {
