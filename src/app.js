@@ -9,17 +9,21 @@ var colorsThreading = colors;
 var colorsTreadling = colors;
 var stepThreading = false;
 var stepTreadling = false;
+var randomColors = true;
 
 if (params.colorsThreading) colorsThreading = setColorsFromParams(params.colorsThreading);
 if (params.colorsTreadling) colorsTreadling = setColorsFromParams(params.colorsTreadling);
 if (params.stepThreading) stepThreading = yesNoToBoolean(params.stepThreading);
 if (params.stepTreadling) stepTreadling = yesNoToBoolean(params.stepTreadling);
+if (params.randomColors) randomColors = yesNoToBoolean(params.randomColors);
 
 var weave = document.getElementById('weave');
 
 var treadlingColors = [];
 for (var i = 0; i < weaveSize; i++) {
-  var {color, colorSet} = getColor(colorsTreadling);
+  if (randomColors) var {color, colorSet} = getColor(colorsTreadling);
+  else var color = colorsTreadling[i % colorsTreadling.length];
+
   treadlingColors.push(color);
 };
 
@@ -29,9 +33,13 @@ for (var i = 0; i < weaveSize; i++) {
     else colorsThreading = colors;
   }
 
-  var {color, colorSet} = getColor(colorsThreading, stepThreading);
-  var threadingColor = color;
-  colorsThreading = colorSet;
+  if (randomColors) {
+    var {color, colorSet} = getColor(colorsThreading, stepThreading);
+    var threadingColor = color;
+    colorsThreading = colorSet;
+  } else {
+    threadingColor = colorsThreading[i % colorsThreading.length];
+  }
 
   var col = document.createElement("DIV");
   col.className = "column";
