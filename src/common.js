@@ -15,6 +15,12 @@ function getRandomIntInclusive(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function yesNoToBoolean(n) {
+  if (n === 'yes') return true;
+  else if (n === 'no') return false;
+  else return false;
+}
+
 function getColor(clr, step) {
   if (step) {
       var index = getRandomInt(0, clr.length);

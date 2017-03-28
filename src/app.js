@@ -7,13 +7,13 @@ var weaveSize = 100;
 var colors = ['#f8fae5', '#e69e91', '#a1c8e6', '#f5e862', '#94bf41', '#2d3a80', '#476eb3'];
 var colorsThreading = colors;
 var colorsTreadling = colors;
-var stepThreading = 0;
-var stepTreadling = 0;
+var stepThreading = false;
+var stepTreadling = false;
 
 if (params.colorsThreading) colorsThreading = setColorsFromParams(params.colorsThreading);
 if (params.colorsTreadling) colorsTreadling = setColorsFromParams(params.colorsTreadling);
-if (params.stepThreading) stepThreading = params.stepThreading;
-if (params.stepTreadling) stepTreadling = params.stepTreadling;
+if (params.stepThreading) stepThreading = yesNoToBoolean(params.stepThreading);
+if (params.stepTreadling) stepTreadling = yesNoToBoolean(params.stepTreadling);
 
 var weave = document.getElementById('weave');
 
