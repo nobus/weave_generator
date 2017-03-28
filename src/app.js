@@ -10,12 +10,14 @@ var colorsTreadling = colors;
 var stepThreading = false;
 var stepTreadling = false;
 var randomColors = true;
+var weaveType = 'random';
 
 if (params.colorsThreading) colorsThreading = setColorsFromParams(params.colorsThreading);
 if (params.colorsTreadling) colorsTreadling = setColorsFromParams(params.colorsTreadling);
 if (params.stepThreading) stepThreading = yesNoToBoolean(params.stepThreading);
 if (params.stepTreadling) stepTreadling = yesNoToBoolean(params.stepTreadling);
 if (params.randomColors) randomColors = yesNoToBoolean(params.randomColors);
+if (params.weaveType) weaveType = params.weaveType;
 
 var weave = document.getElementById('weave');
 
@@ -47,7 +49,10 @@ for (var i = 0; i < weaveSize; i++) {
   for (var ii = 0; ii < weaveSize; ii++) {
     var elem = document.createElement("DIV");
 
-    elem.className = getBoolean() ? 'threadingElem' : 'treadlingElem';
+    if (weaveType === 'random')
+      elem.className = getBoolean() ? 'threadingElem' : 'treadlingElem';
+    else if (weaveType === 'plain')
+      elem.className = (ii+i) % 2 ? 'threadingElem' : 'treadlingElem';
 
     var elemColor;
 
