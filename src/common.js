@@ -59,3 +59,29 @@ function setColorsFromParams(colorsString) {
 
   return ret;
 }
+
+function createSateenRepeat(repeatSize, shift) {
+  var repeat = [];
+
+  if (repeatSize >= 5 && shift > 1 && shift < (repeatSize - 1)) {
+    var th = 0;
+
+    for (var i = 0; i < repeatSize; i++) {
+      repeat.push([]);
+      for (var ii = 0; ii < repeatSize; ii++) {
+        if (ii === th) repeat[i].push(1);
+        else repeat[i].push(0);
+      }
+
+      //calculate next th
+      th = th + shift;
+      if (th > repeatSize) th = th - repeatSize;
+    }
+
+    return repeat;
+
+  } else {
+    console.log(`Something wrong. I can't create repeat for sateen. Check your parameters, please.`);
+    return undefined;
+  }
+}
