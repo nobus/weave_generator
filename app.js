@@ -11,6 +11,8 @@ var stepThreading = false;
 var stepTreadling = false;
 var randomColors = true;
 var weaveType = 'random';
+var sateenRepeat = 5;
+var sateenShift = 3;
 
 if (params.colorsThreading) colorsThreading = setColorsFromParams(params.colorsThreading);
 if (params.colorsTreadling) colorsTreadling = setColorsFromParams(params.colorsTreadling);
@@ -18,6 +20,8 @@ if (params.stepThreading) stepThreading = yesNoToBoolean(params.stepThreading);
 if (params.stepTreadling) stepTreadling = yesNoToBoolean(params.stepTreadling);
 if (params.randomColors) randomColors = yesNoToBoolean(params.randomColors);
 if (params.weaveType) weaveType = params.weaveType;
+if (params.sateenRepeat) sateenRepeat = parseInt(params.sateenRepeat);
+if (params.sateenShift) sateenShift = parseInt(params.sateenShift);
 
 var weave = document.getElementById('weave');
 
@@ -28,6 +32,9 @@ for (var i = 0; i < weaveSize; i++) {
 
   treadlingColors.push(color);
 };
+
+if (weaveType === 'sateen')
+  var sateenRepeat = createSateenRepeat(sateenRepeat, sateenShift);
 
 for (var i = 0; i < weaveSize; i++) {
   if (colorsThreading.length === 0) {
@@ -53,6 +60,8 @@ for (var i = 0; i < weaveSize; i++) {
       elem.className = getBoolean() ? 'threadingElem' : 'treadlingElem';
     else if (weaveType === 'plain')
       elem.className = (ii+i) % 2 ? 'threadingElem' : 'treadlingElem';
+    else if (weaveType === 'sateen' && sateenRepeat)
+      elem.className = sateenRepeat[i%5][ii%5] ? 'threadingElem' : 'treadlingElem';
 
     var elemColor;
 
