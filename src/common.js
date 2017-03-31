@@ -81,7 +81,7 @@ function createSateenRepeat(repeatSize, shift) {
     return repeat;
 
   } else {
-    console.log(`Something wrong. I can't create repeat for sateen. Check your parameters, please.`);
+    window.alert(`Something wrong. I can't create repeat for sateen. Check your parameters, please.`);
     return undefined;
   }
 }
