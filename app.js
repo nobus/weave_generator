@@ -61,7 +61,7 @@ for (var i = 0; i < weaveSize; i++) {
     else if (weaveType === 'plain')
       elem.className = (ii+i) % 2 ? 'threadingElem' : 'treadlingElem';
     else if (weaveType === 'sateen' && sateenRepeatTemplate)
-      elem.className = sateenRepeatTemplate[i%sateenRepeat][ii%sateenRepeat]
+      elem.className = sateenRepeatTemplate[ii%sateenRepeat][i%sateenRepeat]
         ? 'threadingElem'
         : 'treadlingElem';
 

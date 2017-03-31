@@ -75,7 +75,7 @@ function createSateenRepeat(repeatSize, shift) {
 
       //calculate next th
       th = th + shift;
-      if (th > repeatSize) th = th - repeatSize;
+      if (th >= repeatSize) th = th - repeatSize;
     }
 
     return repeat;
