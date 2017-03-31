@@ -33,7 +33,7 @@ for (var i = 0; i < weaveSize; i++) {
   treadlingColors.push(color);
 };
 
-if (weaveType === 'sateen')
+if (weaveType === 'sateen' || weaveType === 'atlas')
   var sateenRepeatTemplate = createSateenRepeat(sateenRepeat, sateenShift);
 
 for (var i = 0; i < weaveSize; i++) {
@@ -64,6 +64,10 @@ for (var i = 0; i < weaveSize; i++) {
       elem.className = sateenRepeatTemplate[ii%sateenRepeat][i%sateenRepeat]
         ? 'threadingElem'
         : 'treadlingElem';
+    else if (weaveType === 'atlas' && sateenRepeatTemplate)
+      elem.className = sateenRepeatTemplate[ii%sateenRepeat][i%sateenRepeat]
+        ? 'treadlingElem'
+        : 'threadingElem';
 
     var elemColor;
 
