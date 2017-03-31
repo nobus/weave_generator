@@ -34,7 +34,7 @@ for (var i = 0; i < weaveSize; i++) {
 };
 
 if (weaveType === 'sateen')
-  var sateenRepeat = createSateenRepeat(sateenRepeat, sateenShift);
+  var sateenRepeatTemplate = createSateenRepeat(sateenRepeat, sateenShift);
 
 for (var i = 0; i < weaveSize; i++) {
   if (colorsThreading.length === 0) {
@@ -60,8 +60,10 @@ for (var i = 0; i < weaveSize; i++) {
       elem.className = getBoolean() ? 'threadingElem' : 'treadlingElem';
     else if (weaveType === 'plain')
       elem.className = (ii+i) % 2 ? 'threadingElem' : 'treadlingElem';
-    else if (weaveType === 'sateen' && sateenRepeat)
-      elem.className = sateenRepeat[i%5][ii%5] ? 'threadingElem' : 'treadlingElem';
+    else if (weaveType === 'sateen' && sateenRepeatTemplate)
+      elem.className = sateenRepeatTemplate[i%sateenRepeat][ii%sateenRepeat]
+        ? 'threadingElem'
+        : 'treadlingElem';
 
     var elemColor;
 
