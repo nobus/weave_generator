@@ -13,6 +13,7 @@ var randomColors = true;
 var weaveType = 'random';
 var sateenRepeat = 5;
 var sateenShift = 3;
+var twillFormula = [[2,3]];
 
 if (params.colorsThreading) colorsThreading = setColorsFromParams(params.colorsThreading);
 if (params.colorsTreadling) colorsTreadling = setColorsFromParams(params.colorsTreadling);
@@ -22,6 +23,7 @@ if (params.randomColors) randomColors = yesNoToBoolean(params.randomColors);
 if (params.weaveType) weaveType = params.weaveType;
 if (params.sateenRepeat) sateenRepeat = parseInt(params.sateenRepeat);
 if (params.sateenShift) sateenShift = parseInt(params.sateenShift);
+if (params.twillFormula) twillFormula = parseTwillFormula(params.twillFormula);
 
 var weave = document.getElementById('weave');
 

@@ -85,3 +85,15 @@ function createSateenRepeat(repeatSize, shift) {
     return undefined;
   }
 }
+
+function parseTwillFormula(params) {
+  var formula = [];
+
+  return formula;
+}
+
+function createTwillRepeat(formula) {
+  var repeat = [];
+
+  return repeat;
+}
