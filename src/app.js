@@ -38,7 +38,7 @@ for (var i = 0; i < weaveSize; i++) {
 if (weaveType === 'sateen' || weaveType === 'atlas')
   var sateenRepeatTemplate = createSateenRepeat(sateenRepeat, sateenShift);
 else if (weaveType === 'twill')
-  var twillRepeatTemplate = createTwillRepeat(twillFormula);
+  var {twillRepeatTemplate, twillTemplateSize} = createTwillRepeat(twillFormula);
 
 for (var i = 0; i < weaveSize; i++) {
   if (colorsThreading.length === 0) {
@@ -70,6 +70,10 @@ for (var i = 0; i < weaveSize; i++) {
         : 'treadlingElem';
     else if (weaveType === 'atlas' && sateenRepeatTemplate)
       elem.className = sateenRepeatTemplate[ii%sateenRepeat][i%sateenRepeat]
+        ? 'treadlingElem'
+        : 'threadingElem';
+    else if (weaveType === 'twill' && twillRepeatTemplate)
+      elem.className = twillRepeatTemplate[ii%twillTemplateSize][i%twillTemplateSize]
         ? 'treadlingElem'
         : 'threadingElem';
 

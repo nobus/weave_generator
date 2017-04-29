@@ -109,5 +109,5 @@ function createTwillRepeat(formula) {
     repeatElem.unshift(repeatElem.pop());
   }
 
-  return repeat;
+  return {'twillRepeatTemplate': repeat, 'twillTemplateSize': counter};
 }
