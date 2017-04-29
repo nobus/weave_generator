@@ -87,6 +87,7 @@ function createSateenRepeat(repeatSize, shift) {
 }
 
 function parseTwillFormula(params) {
+  // for example: 2-3,1-4,1-3
   var formula = [];
 
   return formula;
