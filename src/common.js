@@ -92,7 +92,22 @@ function parseTwillFormula(params) {
 }
 
 function createTwillRepeat(formula) {
+  //formula: [[2,3], [1,4], [1,3]] => [1,1,0,0,0,1,0,0,0,0,1,0,0,0]
   var repeat = [];
+
+  var counter = 0;
+  var repeatElem = [];
+
+  for (var i = 0; i < formula.length; i++) {
+    for (var ii = 0; ii < formula[i][0]; ii++) repeatElem.push(1);
+    for (var ii = 0; ii < formula[i][1]; ii++) repeatElem.push(0);
+    counter += parseInt(formula[i][0]) + parseInt(formula[i][1]);
+  }
+
+  for (var i = 0; i < counter; i++) {
+    repeat.push(repeatElem.slice());
+    repeatElem.unshift(repeatElem.pop());
+  }
 
   return repeat;
 }

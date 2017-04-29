@@ -37,6 +37,8 @@ for (var i = 0; i < weaveSize; i++) {
 
 if (weaveType === 'sateen' || weaveType === 'atlas')
   var sateenRepeatTemplate = createSateenRepeat(sateenRepeat, sateenShift);
+else if (weaveType === 'twill')
+  var twillRepeatTemplate = createTwillRepeat(twillFormula);
 
 for (var i = 0; i < weaveSize; i++) {
   if (colorsThreading.length === 0) {
